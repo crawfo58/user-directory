@@ -4,9 +4,11 @@ const changeText = function(ev) {
     const users = document.querySelector('#users')
     const userName = form.userName.value
     const age = form.age.value
+    const color = form.favoriteColor.value
 
     const p = document.createElement('p')
     p.textContent = `${userName}, ${age}`
+    p.style.backgroundColor = color
     users.appendChild(p)
 
     form.reset()
