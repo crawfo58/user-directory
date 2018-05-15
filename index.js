@@ -4,7 +4,11 @@ const changeText = function(ev) {
     const users = document.querySelector('#users')
     const userName = form.userName.value
     const age = form.age.value
-    users.innerHTML += `<p>${userName}, ${age}</p>`
+
+    const p = document.createElement('p')
+    p.textContent = `${userName}, ${age}`
+    users.appendChild(p)
+
     form.reset()
     form.userName.focus()
 }
