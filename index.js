@@ -6,10 +6,18 @@ const changeText = function(ev) {
     const age = form.age.value
     const color = form.favoriteColor.value
 
-    const p = document.createElement('p')
-    p.textContent = `${userName}, ${age}`
-    p.style.backgroundColor = color
-    users.appendChild(p)
+    const list = document.createElement('ul')
+
+    const nameItem = document.createElement('li')
+    nameItem.textContent = `Name: ${userName}`
+
+    const ageItem = document.createElement('li')
+    ageItem.textContent = `Age: ${age}`
+
+    list.appendChild(nameItem)
+    list.appendChild(ageItem)
+
+    users.appendChild(list)
 
     form.reset()
     form.userName.focus()
