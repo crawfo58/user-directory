@@ -5,7 +5,7 @@ const changeText = function(ev) {
   const form = ev.target
   const userName = form.userName.value
   const age = form.age.value
-  const favoriteColor = form.favoriteColor.value
+  
 
   const users = document.querySelector('#users')
 
@@ -20,11 +20,7 @@ const changeText = function(ev) {
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
 
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
-  colorDiv.style.width = '6rem'
-  colorDiv.style.height = '3rem'
-  colorItem.appendChild(colorDiv)
+  colorItem.appendChild(renderColor())
 
   list.appendChild(nameItem)
   list.appendChild(ageItem)
@@ -34,6 +30,15 @@ const changeText = function(ev) {
 
   form.reset()
   form.userName.focus()
+}
+
+const renderColor = function() {
+  const favoriteColor = form.favoriteColor.value
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+  return colorDiv
 }
 
 form.addEventListener('submit', changeText)
