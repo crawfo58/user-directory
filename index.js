@@ -1,6 +1,10 @@
 console.log('It works!')
-const changeText = function() {
-    document.getElementsByClassName('header2')[0].innerHTML = 'Button Clicked'
-  }
-const button = document.querySelector('button')
-button.addEventListener('click', changeText)
+const changeText = function(ev) {
+    ev.preventDefault()
+    const heading = document.querySelector('h1')
+    const input = document.querySelector('input')
+    heading.textContent = input.value
+}
+const form = document.querySelector('form#userForm')
+form.addEventListener('submit', changeText)
+
