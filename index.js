@@ -3,7 +3,7 @@ const changeText = function(ev) {
     ev.preventDefault()
     const users = document.querySelector('#users')
     const userName = form.userName.value
-    users.textContent += ' ' + userName
+    users.innerHTML += '<p>' + userName + '</p>'
     form.userName.value = ''
 }
 const form = document.querySelector('form#userForm')
