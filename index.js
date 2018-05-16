@@ -4,7 +4,15 @@ const changeText = function(ev) {
   ev.preventDefault()
   const form = ev.target
 
-  users.appendChild(renderList())
+  const user = {
+    'Name': form.userName.value,
+    'Age': form.age.value,
+    'Favorite Color': renderColor(form.favoriteColor.value)
+  }
+
+  const list = renderList(user)
+  const users = document.querySelector('#users')
+  users.appendChild(list)
 
   form.reset()
   form.userName.focus()
@@ -29,21 +37,13 @@ const renderListItem = function(label, value) {
     return item
 }
 
-const renderList = function() {
-    const user = {
-      'Name': form.userName.value,
-      'Age': form.age.value,
-      'Favorite Color': renderColor(form.favoriteColor.value)
-    }
-
+const renderList = function(data) {
     const list = document.createElement('ul')
 
-    Object.keys(user).forEach(function(label) {
-      const item = renderListItem(label, user[label])
+    Object.keys(data).forEach(function(label) {
+      const item = renderListItem(label, data[label])
       list.appendChild(item)
     })
-
-    const users = document.querySelector('#users')
   
     return list
 }
